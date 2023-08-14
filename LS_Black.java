@@ -62,11 +62,14 @@ public class LS_Black<Item> implements Iterable<Item> {
         }
 
         Nodo actual = primero; // ponemos nuestro primero como el actual
+        Nodo previo = null;
 
         // recorremos nuestra lista hasta llegar a la posicion deseada que es donde
         // vamos a poner nuestro nodo
         for (int i = 0; i < posicion && actual != null; i++) {
+            previo = actual;
             actual = actual.siguiente; // ponemos nuestro siguiente como el actual
+
         }
 
         if (actual == null) {
@@ -76,8 +79,10 @@ public class LS_Black<Item> implements Iterable<Item> {
             temporal.item = nuevo; // le asignamos el valor del nuevo item a nuestro nodo
             // aplicamos la conexion con nuestro nodo temporal
             temporal.siguiente = actual.siguiente;
-            actual.siguiente = temporal;
+            previo.siguiente = temporal;
+
         }
+
     }
 
     void removertOtrasPosiciones(int posicion) {
@@ -160,6 +165,8 @@ public class LS_Black<Item> implements Iterable<Item> {
         lista.addPrimero("1");// --->en la siguiente inserteme 4
         lista.addFinal("6");
         lista.addFinal("7");// 4
+        lista.addFinal("7");
+        lista.addFinal("8");
 
         System.out.println("\nLista original:");
         for (String x : lista) {
@@ -178,8 +185,7 @@ public class LS_Black<Item> implements Iterable<Item> {
             StdOut.println(x);
         }
 
-        lista.insertOtrasPosiciones("4", 9);
-        lista.insertOtrasPosiciones("5", 3);
+        lista.insertOtrasPosiciones("5", 2);
         System.out.println("\nDespués de insertar en posiciones intermedias:");
         for (String x : lista) {
             StdOut.println(x);

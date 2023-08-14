@@ -30,17 +30,22 @@ public class Baraja {
         Carta temporal;
 
         for (int i = 0; i < cartas.longitud(); i++) {
-            randomIndice = (int) (Math.random() * (51 - i)) + i; // indice= i mas randon en ("52 - i")
+            randomIndice = (int) (Math.random() * (50 - i)) + i; // indice= i mas randon en ("52 - i")
             temporal = cartas.get(randomIndice); // temporal = tomar una carta de la posicion indice
             cartas.insertOtrasPosiciones(cartas.get(i), randomIndice);
-            cartas.removertOtrasPosiciones(randomIndice);
             cartas.insertOtrasPosiciones(temporal, i);
         }
     }
 
-    // public Carta sacarCarta() {
-    //
-    // }
+    public Carta sacarCarta() {
+        if (siguienteCarta <= cartas.longitud()) {
+            return null;
+        }
+        Carta cartaRetirada = cartas.get(siguienteCarta);
+        siguienteCarta++;
+        return cartaRetirada;
+
+    }
 
     public static void main(String[] args) {
 
@@ -76,9 +81,15 @@ public class Baraja {
         baraja.barajar();
 
         StdOut.println("\nlas cartas barajadas son");
+        int contar = 1;
         for (Carta carta : baraja.GetCartas()) {
-            System.out.println(carta.toString());
+            System.out.println("carta #" + contar + "---> " + carta.toString());
+            contar++;
         }
+
+        // probando el longitud
+        System.out.println("\nla longitud de la lista es");
+        System.out.println(listaCartas.longitud() + "\n");
 
     }
 }
