@@ -30,7 +30,7 @@ public class Baraja {
         Carta temporal;
 
         for (int i = 0; i < cartas.longitud(); i++) {
-            randomIndice = (int) (Math.random() * (50 - i)) + i; // indice= i mas randon en ("52 - i")
+            randomIndice = (int) (Math.random() * (52 - i)) + i; // indice= i mas randon en ("52 - i")
             temporal = cartas.get(randomIndice); // temporal = tomar una carta de la posicion indice
             cartas.insertOtrasPosiciones(cartas.get(i), randomIndice);
             cartas.insertOtrasPosiciones(temporal, i);
@@ -82,8 +82,10 @@ public class Baraja {
 
         StdOut.println("\nlas cartas barajadas son");
         int contar = 1;
+
         for (Carta carta : baraja.GetCartas()) {
-            System.out.println("carta #" + contar + "---> " + carta.toString());
+
+            System.out.println("carta #" + contar + " ---> " + carta.toString());
             contar++;
         }
 

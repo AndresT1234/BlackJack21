@@ -69,7 +69,6 @@ public class LS_Black<Item> implements Iterable<Item> {
         for (int i = 0; i < posicion && actual != null; i++) {
             previo = actual;
             actual = actual.siguiente; // ponemos nuestro siguiente como el actual
-
         }
 
         if (actual == null) {
