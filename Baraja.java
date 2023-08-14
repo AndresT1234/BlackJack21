@@ -1,4 +1,4 @@
-package upb.Taller1_Black;
+package upb.Taller1_Black.BlackJack21;
 
 import java.util.Random;
 
@@ -11,7 +11,8 @@ public class Baraja {
         this.cartas = cartas;
         this.siguienteCarta = siguienteCarta;
     }
-//.. 
+
+    // ..
     public LS_Black<Carta> GetCartas() {
         return cartas;
     }
