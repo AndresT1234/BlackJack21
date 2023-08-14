@@ -1,4 +1,4 @@
-package upb.Taller1_Black;
+package upb.Taller1_Black.BlackJack21;
 
 import java.util.Iterator;
 
@@ -13,6 +13,7 @@ public class LS_Black<Item> implements Iterable<Item> {
         Nodo siguiente;
     }
 
+    //  para emanuel
     Nodo primero; // Lista vacia ->Nula
 
     void addPrimero(Item i) {
