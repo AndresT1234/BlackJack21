@@ -23,6 +23,7 @@ public class Baraja {
         return siguienteCarta;
     }
 
+    // jjj
     public void barajar() {
 
         int randomIndice;
