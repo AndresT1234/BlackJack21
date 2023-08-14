@@ -1,8 +1,5 @@
 package upb.BlackJack21;
 
-import java.util.Random;
-import java.io.*;
-
 import edu.princeton.cs.algs4.StdOut;
 
 public class Baraja {
@@ -30,19 +27,20 @@ public class Baraja {
         Carta temporal;
 
         for (int i = 0; i < cartas.longitud(); i++) {
-            randomIndice = (int) (Math.random() * (52 - i)) + i; // indice= i mas randon en ("52 - i")
+            randomIndice = (int) (Math.random() * (cartas.longitud() - i)) + i; // indice= i mas randon en ("52 - i")
             temporal = cartas.get(randomIndice); // temporal = tomar una carta de la posicion indice
+
             cartas.insertOtrasPosiciones(cartas.get(i), randomIndice);
             cartas.insertOtrasPosiciones(temporal, i);
+
         }
     }
 
     public Carta sacarCarta() {
-        if (siguienteCarta <= cartas.longitud()) {
-            return null;
-        }
+
         Carta cartaRetirada = cartas.get(siguienteCarta);
-        siguienteCarta++;
+        cartas.removertOtrasPosiciones(siguienteCarta);
+
         return cartaRetirada;
 
     }
@@ -93,5 +91,19 @@ public class Baraja {
         System.out.println("\nla longitud de la lista es");
         System.out.println(listaCartas.longitud() + "\n");
 
+        System.out.println("vamos a retirar una carta");
+        Carta cartaRetirada = baraja.sacarCarta();
+        System.out.println("Carta retirada: " + cartaRetirada.toString());
+
+        StdOut.println("\nbaraja actual es");
+        int contador = 1;
+
+        for (Carta carta : baraja.GetCartas()) {
+
+            System.out.println("carta #" + contador + " ---> " + carta.toString());
+            contador++;
+        }
+
     }
+
 }

@@ -71,16 +71,15 @@ public class LS_Black<Item> implements Iterable<Item> {
             actual = actual.siguiente; // ponemos nuestro siguiente como el actual
         }
 
-        if (actual == null) {
-            addFinal(nuevo);// Si la posición sale del rango superior de la lista, la agregamos al final
-        } else {
-            Nodo temporal = new Nodo(); // creamos un nuevo nodito
-            temporal.item = nuevo; // le asignamos el valor del nuevo item a nuestro nodo
-            // aplicamos la conexion con nuestro nodo temporal
-            temporal.siguiente = actual.siguiente;
-            previo.siguiente = temporal;
-
-        }
+        // if (actual == null) {
+        // addFinal(nuevo);// Si la posición sale del rango superior de la lista, la
+        // agregamos al final}
+        // sino
+        Nodo temporal = new Nodo(); // creamos un nuevo nodito
+        temporal.item = nuevo; // le asignamos el valor del nuevo item a nuestro nodo
+        // aplicamos la conexion con nuestro nodo temporal
+        temporal.siguiente = actual.siguiente;
+        previo.siguiente = temporal;
 
     }
 
