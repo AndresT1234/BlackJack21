@@ -23,7 +23,7 @@ public class Carta {
 
     @Override
     public String toString() {
-        return "La Carta Fue: " + GetValor() + " De " + GetPinta();
+        return "La Carta es " + GetValor() + " De " + GetPinta();
     }
 
     public static void main(String[] args) {
