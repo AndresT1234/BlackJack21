@@ -1,4 +1,4 @@
-package upb.Taller1_Black.BlackJack21;
+package upb.BlackJack21;
 
 import java.util.Iterator;
 
@@ -14,7 +14,7 @@ public class LS_Black<Item> implements Iterable<Item> {
     }
 
     //  para emanuel
-    Nodo primero; // Lista vacia ->Nula
+    Nodo primero; // Lista vacia ->Nula veneco
 
     void addPrimero(Item i) {
         Nodo temporal = new Nodo();
