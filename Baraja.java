@@ -7,9 +7,8 @@ public class Baraja {
     private LS_Black<Carta> cartas;
     private int siguienteCarta;
 
-    public Baraja(LS_Black<Carta> cartas, int siguienteCarta) {
+    public Baraja(LS_Black<Carta> cartas) {
         this.cartas = cartas;
-        this.siguienteCarta = siguienteCarta;
     }
 
     public LS_Black<Carta> GetCartas() {
@@ -29,19 +28,19 @@ public class Baraja {
         for (int i = 0; i < cartas.longitud(); i++) {
             randomIndice = (int) (Math.random() * (cartas.longitud() - i)) + i; // indice= i mas randon en ("52 - i")
             temporal = cartas.get(randomIndice); // temporal = tomar una carta de la posicion indice
-
             cartas.insertOtrasPosiciones(cartas.get(i), randomIndice);
             cartas.insertOtrasPosiciones(temporal, i);
-
         }
     }
 
     public Carta sacarCarta() {
-
-        Carta cartaRetirada = cartas.get(siguienteCarta);
-        cartas.removertOtrasPosiciones(siguienteCarta);
-
-        return cartaRetirada;
+        if (cartas != null && siguienteCarta < cartas.longitud()) {
+            Carta cartaRetirada = cartas.get(siguienteCarta);
+            cartas.removertOtrasPosiciones(siguienteCarta);
+            siguienteCarta++;
+            return cartaRetirada;
+        }
+        return null;
 
     }
 
@@ -61,7 +60,7 @@ public class Baraja {
         }
 
         // se crea baraja
-        Baraja baraja = new Baraja(listaCartas, 0);
+        Baraja baraja = new Baraja(listaCartas);
 
         System.out.println("\nCartas antes de barajar:\n");
         for (Carta carta : baraja.GetCartas()) {
@@ -76,32 +75,13 @@ public class Baraja {
         System.out.println("\nla longitud de la lista es");
         System.out.println(listaCartas.longitud());
 
+        // se revuelve la baraja
         baraja.barajar();
-
         StdOut.println("\nlas cartas barajadas son");
-        int contar = 1;
-
+        int contar = 0;
         for (Carta carta : baraja.GetCartas()) {
-
             System.out.println("carta #" + contar + " ---> " + carta.toString());
             contar++;
-        }
-
-        // probando el longitud
-        System.out.println("\nla longitud de la lista es");
-        System.out.println(listaCartas.longitud() + "\n");
-
-        System.out.println("vamos a retirar una carta");
-        Carta cartaRetirada = baraja.sacarCarta();
-        System.out.println("Carta retirada: " + cartaRetirada.toString());
-
-        StdOut.println("\nbaraja actual es");
-        int contador = 1;
-
-        for (Carta carta : baraja.GetCartas()) {
-
-            System.out.println("carta #" + contador + " ---> " + carta.toString());
-            contador++;
         }
 
     }

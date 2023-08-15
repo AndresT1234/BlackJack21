@@ -56,7 +56,7 @@ public class LS_Black<Item> implements Iterable<Item> {
     }
 
     void insertOtrasPosiciones(Item nuevo, int posicion) {
-        if (posicion <= 0 || primero == null) {
+        if (posicion < 0 || primero == null) {
             addPrimero(nuevo); // agregamos al principio si se cumple esta condicion
             return;
         }
@@ -71,34 +71,43 @@ public class LS_Black<Item> implements Iterable<Item> {
             actual = actual.siguiente; // ponemos nuestro siguiente como el actual
         }
 
-        // if (actual == null) {
-        // addFinal(nuevo);// Si la posición sale del rango superior de la lista, la
-        // agregamos al final}
-        // sino
-        Nodo temporal = new Nodo(); // creamos un nuevo nodito
-        temporal.item = nuevo; // le asignamos el valor del nuevo item a nuestro nodo
-        // aplicamos la conexion con nuestro nodo temporal
-        temporal.siguiente = actual.siguiente;
-        previo.siguiente = temporal;
-
+        if (actual == null) {
+            addFinal(nuevo);
+        } // Si la posición sale del rango superior de la lista, la
+          // agregamos al final}
+        else {
+            Nodo temporal = new Nodo(); // creamos un nuevo nodito
+            temporal.item = nuevo; // le asignamos el valor del nuevo item a nuestro nodo
+            // aplicamos la conexion con nuestro nodo temporal
+            temporal.siguiente = actual.siguiente; // error en siguiente
+            if (posicion > 0)
+                previo.siguiente = temporal;
+        }
     }
 
     void removertOtrasPosiciones(int posicion) {
-        if (posicion <= 0 || primero == null || primero.siguiente == null) {
+        if (posicion <= 0 || primero == null) {
             return;// No se puede remover si esta en null
         }
 
-        Nodo actual = primero;
+        if (posicion == 1) {
+            delPrimero();
+            return;
+        }
 
-        for (int i = 1; i < posicion && actual != null; i++) {
+        Nodo actual = primero;
+        Nodo previo = null;
+
+        for (int i = 0; i < posicion && actual != null; i++) {
+            previo = actual;
             actual = actual.siguiente; // buscamos la posicion a eliminar
         }
 
-        if (actual == null || actual.siguiente == null) {
+        if (actual == null) {
             return;// no hay nada que remover
         }
 
-        actual.siguiente = actual.siguiente.siguiente;
+        previo.siguiente = actual.siguiente;
     }
 
     public int longitud() {
@@ -107,8 +116,8 @@ public class LS_Black<Item> implements Iterable<Item> {
         Nodo concurrido = primero;
 
         while (concurrido != null) {
-            contador++;
             concurrido = concurrido.siguiente;
+            contador++;
         }
 
         return contador;
