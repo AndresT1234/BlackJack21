@@ -37,6 +37,7 @@ public class Baraja {
         if (cartas != null && siguienteCarta < cartas.longitud()) {
             Carta cartaRetirada = cartas.get(siguienteCarta);
             cartas.removertOtrasPosiciones(siguienteCarta);
+
             siguienteCarta++;
             return cartaRetirada;
         }
@@ -83,6 +84,28 @@ public class Baraja {
             System.out.println("carta #" + contar + " ---> " + carta.toString());
             contar++;
         }
+        System.out.println("\n");
+
+        System.out.println("vamos a eliminar cartas de nuestra lista, esto simulara el retiro de carta\n");
+        System.out.println("la carta 1 retirada de la baraja  fue: " + baraja.sacarCarta());
+        System.out.println("la carta 2 retirada de la baraja fue: " + baraja.sacarCarta());
+        System.out.println("la carta 3 retirada de la baraja fue: " + baraja.sacarCarta());
+        System.out.println("la carta 4 retirada de la baraja fue: " + baraja.sacarCarta());
+        System.out.println("la carta 5 retirada de la baraja fue: " + baraja.sacarCarta());
+        System.out.println("la carta 6 retirada de la baraja fue: " + baraja.sacarCarta());
+
+        System.out.println("\n");
+
+        int numero = 0;
+
+        for (Carta carta : baraja.GetCartas()) {
+            System.out.println("carta #" + numero + " ---> " + carta.toString());
+            numero++;
+        }
+
+        // probando el longitud
+        System.out.println("\nla longitud de la lista es");
+        System.out.println(listaCartas.longitud());
 
     }
 

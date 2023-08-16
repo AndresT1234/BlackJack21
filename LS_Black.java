@@ -86,11 +86,11 @@ public class LS_Black<Item> implements Iterable<Item> {
     }
 
     void removertOtrasPosiciones(int posicion) {
-        if (posicion <= 0 || primero == null) {
+        if (posicion < 0 || primero == null) {
             return;// No se puede remover si esta en null
         }
 
-        if (posicion == 1) {
+        if (posicion == 0) {
             delPrimero();
             return;
         }
@@ -106,8 +106,8 @@ public class LS_Black<Item> implements Iterable<Item> {
         if (actual == null) {
             return;// no hay nada que remover
         }
-
-        previo.siguiente = actual.siguiente;
+        if (posicion > 0)
+            previo.siguiente = actual.siguiente;
     }
 
     public int longitud() {
