@@ -7,12 +7,9 @@ public class Baraja {
     private LS_Black<Carta> cartas;
     private int siguienteCarta;
 
-    public Baraja() {
-
-    }
-
     public Baraja(LS_Black<Carta> cartas) {
         this.cartas = cartas;
+        inicializarBaraja();
     }
 
     public LS_Black<Carta> GetCartas() {
@@ -23,7 +20,23 @@ public class Baraja {
         return siguienteCarta;
     }
 
-    // jjj
+    // metodo para inicializar baraja
+    public static LS_Black<Carta> inicializarBaraja() {
+
+        LS_Black<Carta> listaCartas = new LS_Black<Carta>();
+
+        // Crear cartas y agregarlas a la lista
+        String[] pintas = { "trébol", "diamante", "corazón", "espada" };
+        String[] valores = { "As", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
+
+        for (String pinta : pintas) {
+            for (String valor : valores) {
+                listaCartas.addFinal(new Carta(pinta, valor));
+            }
+        }
+        return listaCartas;
+    }
+
     public void barajar() {
 
         int randomIndice;
@@ -51,18 +64,8 @@ public class Baraja {
 
     public static void main(String[] args) {
 
-        // Crear una instancia de la clase Lista
-        LS_Black<Carta> listaCartas = new LS_Black<Carta>();
-
-        // Crear cartas y agregarlas a la lista
-        String[] pintas = { "trébol", "diamante", "corazón", "espada" };
-        String[] valores = { "As", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
-
-        for (String pinta : pintas) {
-            for (String valor : valores) {
-                listaCartas.addFinal(new Carta(pinta, valor));
-            }
-        }
+        // Crear una instancia de la clase e inicializo mi lista de cartas
+        LS_Black<Carta> listaCartas = inicializarBaraja();
 
         // se crea baraja
         Baraja baraja = new Baraja(listaCartas);
