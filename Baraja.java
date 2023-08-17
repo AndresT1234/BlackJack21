@@ -7,6 +7,10 @@ public class Baraja {
     private LS_Black<Carta> cartas;
     private int siguienteCarta;
 
+    public Baraja() {
+
+    }
+
     public Baraja(LS_Black<Carta> cartas) {
         this.cartas = cartas;
     }

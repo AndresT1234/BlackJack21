@@ -8,8 +8,16 @@ public class Carta {
     private String pinta;
     private String valor;
 
+    public Carta() {
+
+    }
+
     public Carta(String pinta, String valor) {
         this.pinta = pinta;
+        this.valor = valor;
+    }
+
+    public Carta(String valor) {
         this.valor = valor;
     }
 
