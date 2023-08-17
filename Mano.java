@@ -13,7 +13,7 @@ public class Mano {
     }
 
     public void agregarCarta(Carta carta) {
-        cartica.addPrimero(carta);
+        cartica.addFinal(carta);
     }
 
     public int operacionValor() {
