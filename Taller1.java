@@ -42,24 +42,28 @@ public class Taller1 {
             while (todosPasan < jugadores) {
                 boolean verifica = false;
                 int pide ;
-                todosPasan = 0;
                 ronda++;
                 StdOut.println("RONDA NUMERO:    " + ronda+"\n");
                 for (Mano manolo:manitos){
+                    if(!manolo.getPasa()){
                     StdOut.println("Para pedir ingrese 1 para pasar ingrese 0");
                     do{
-                        pide  = StdIn.readInt();
+                        pide  = StdIn.readByte();
                         if(pide == 1 || pide == 0) verifica = true;
                         else StdOut.println("Ingresa una opcion valida");
 
                     }while(!verifica);
                     
-                    if(pide == 1 ){
+                    if(pide == 1 && manolo.operacionValor() <=21 ){
                         card = barajita.sacarCarta();
                         manolo.agregarCarta(card);
                         StdOut.println("\n"+card.toString()+"\n");
                     }
-                    else todosPasan++;
+                    else {
+                        todosPasan++;
+                        manolo.pasa(true);
+                    }
+                }
 
                 }
             }
