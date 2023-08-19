@@ -9,7 +9,8 @@ public class Carta {
     private String valor;
 
     public Carta() {
-
+        pinta = null;
+        valor = null;
     }
 
     public Carta(String pinta, String valor) {
