@@ -42,6 +42,12 @@ public class Taller1 {
                 ronda++;
                 StdOut.println("\nRONDA NUMERO:    " + ronda + "\n");
                 for (Mano manolo : manitos) {
+
+                    if (manolo.operacionValor() > 0 && manolo.operacionValor() <= 21) { // Verificar si el jugador aún
+                                                                                        // puede jugar
+                        StdOut.println("\nJugador número " + manolo.getNum());
+                    }
+
                     StdOut.println("\nPara pedir ingrese 1, para pasar ingrese 0 ");
                     do {
                         pide = StdIn.readInt();
@@ -59,6 +65,11 @@ public class Taller1 {
                     } else
                         todosPasan++;
 
+                    if (manolo.operacionValor() > 21) {
+                        StdOut.println("Ya te pasaste de 21. Pasando al siguiente jugador.");
+
+                        continue; // Pasar al siguiente jugador si ya se pasó de 21
+                    }
                 }
             }
             byte count = 0;
