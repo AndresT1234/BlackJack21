@@ -1,5 +1,7 @@
 package upb.BlackJack21;
 
+import java.util.List;
+
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
@@ -16,8 +18,8 @@ public class Taller1 {
 
         LS_Black<Mano> manitos = new LS_Black<>();      
 
-        for(byte i = 0; i < jugadores;i++){
-            Mano manita = new Mano();
+        for(byte i = 1; i <= jugadores;i++){
+            Mano manita = new Mano(i);
             manitos.addFinal(manita);
         }
 
@@ -54,29 +56,47 @@ public class Taller1 {
                 }
             }
             byte count = 0;
-            int[] arreglito = new int[jugadores];
+            Mano[] arreglito = new Mano[jugadores];
             for (Mano manolo:manitos){
-                arreglito[count] = manolo.operacionValor();
+                arreglito[count] = manolo;;
                 count++;  
             }
-            int max = 0;
-            boolean empate = false;
+            count = 0;
+            int mayor = 0;
+            Mano actual;
+            for (int i=0;i<arreglito.length;i++){
+                actual = arreglito[i];
+                if(actual.operacionValor()>mayor){
+                    mayor = actual.operacionValor();
+                }
 
-            for (int value : arreglito) {
-            if(value == 21) 
-            if (value > max) {
-                max = value;
-                empate = false;
-            } else if (value == max) {
-                empate = true;
             }
-        }
+            boolean empate = false;
+            actual = null;
+            LS_Black<Mano> winners = new LS_Black<Mano>();
+            for(int j=0;j<arreglito.length;j++){
+                actual = arreglito[j];
+                if(actual.operacionValor() == mayor){
+                    winners.addFinal(actual);
+                    count++;
+                }
+                if(count > 1) empate = true;
+            }
 
-        if (empate) {
-            System.out.println("Hay empate en el valor máximo: " + max);
-        } else {
-            System.out.println("El valor máximo es: " + max);
-        }                                            
+            if(empate){
+                StdOut.println("Los ganadores fueron:");
+                for(Mano manita: winners){
+                    StdOut.println("El jugador numero:"+manita.getNum()+" con puntaje: "+ manita.operacionValor());
+                }
+
+            }
+            else  {
+                for(Mano manita2 : winners){
+                    StdOut.println("El ganador fue: \n"+" El jugador numero:"+manita2.getNum()+" con puntaje: "+ manita2.operacionValor());
+                }
+            }
+
+                                  
 
     
 
