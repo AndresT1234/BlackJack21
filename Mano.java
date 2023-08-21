@@ -4,11 +4,6 @@ public class Mano {
 
     private LS_Black<Carta> cartica;
     private byte numJugador;
-    
-        public Mano() {
-        this.cartica = new LS_Black<>();
-        this.numJugador = 0;
-    }
 
     public Mano(byte numJugador) {
         this.cartica = new LS_Black<>();

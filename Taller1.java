@@ -23,21 +23,15 @@ public class Taller1 {
             manitos.addFinal(manita);
         }
 
+        StdOut.println(manitos.longitud());
         if (jugadores > 0 && jugadores < 8) {
 
-            Carta card = new Carta();
             byte todosPasan = 0;
             byte ronda = 1;
             StdOut.println("RONDA NUMERO:    " + ronda+"\n");
             for (Mano manolo:manitos){
-                StdOut.println("EL JUGADOR NUMERO : "+ manolo.getNum()+" OBTUVO: \n");
-                    card = barajita.sacarCarta();
-                    manolo.agregarCarta(card);
-                    StdOut.println(card.toString()+"\n");
-                    card = barajita.sacarCarta();
-                    manolo.agregarCarta(card);
-                    StdOut.println(card.toString()+"\n");
-
+                    manolo.agregarCarta(barajita.sacarCarta());
+                    manolo.agregarCarta(barajita.sacarCarta());
             }
             while (todosPasan < jugadores) {
                 boolean verifica = false;
@@ -55,9 +49,7 @@ public class Taller1 {
                     }while(!verifica);
                     
                     if(pide == 1 ){
-                        card = barajita.sacarCarta();
-                        manolo.agregarCarta(card);
-                        StdOut.println("\n"+card.toString()+"\n");
+                        manolo.agregarCarta(barajita.sacarCarta());
                     }
                     else todosPasan++;
 
@@ -74,7 +66,7 @@ public class Taller1 {
             Mano actual;
             for (int i=0;i<arreglito.length;i++){
                 actual = arreglito[i];
-                if(actual.operacionValor()>mayor && actual.operacionValor()<= 21){
+                if(actual.operacionValor()>mayor){
                     mayor = actual.operacionValor();
                 }
 
@@ -100,8 +92,7 @@ public class Taller1 {
             }
             else  {
                 for(Mano manita2 : winners){
-                    StdOut.println("\nEl ganador fue:"+"\n"+"\n"+"    El jugador numero: "+manita2.getNum()+" con puntaje: "+ manita2.operacionValor()+
-                    "\n");
+                    StdOut.println("El ganador fue: \n"+" El jugador numero:"+manita2.getNum()+" con puntaje: "+ manita2.operacionValor());
                 }
             }
 
