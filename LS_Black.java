@@ -134,7 +134,7 @@ public class LS_Black<Item> implements Iterable<Item> {
             concurrido = concurrido.siguiente;
         }
 
-        return  (Carta)concurrido.item;
+        return (Carta) concurrido.item;
 
     }
 
