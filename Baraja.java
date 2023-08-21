@@ -4,11 +4,10 @@ import edu.princeton.cs.algs4.StdOut;
 
 public class Baraja {
 
-    private String[] pintas = { "trébol", "diamante", "corazón", "espada" };
+    private String[] pintas = { "trébol", "diamante", "corazon", "espada" };
     private String[] valores = { "As", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
     private LS_Black<Carta> cartas;
     private int siguienteCarta;
-
 
     public Baraja() {
         this.cartas = inicializarBaraja();
@@ -17,7 +16,7 @@ public class Baraja {
     public LS_Black<Carta> inicializarBaraja() {
 
         LS_Black<Carta> listaCartas = new LS_Black<Carta>();
-        // Crear cartas y agregarlas a la lista 
+        // Crear cartas y agregarlas a la lista
         for (String pinta : pintas) {
             for (String valor : valores) {
                 listaCartas.addFinal(new Carta(pinta, valor));
@@ -35,7 +34,6 @@ public class Baraja {
     }
 
     // metodo para inicializar baraja
-
 
     public void barajar() {
 
@@ -63,7 +61,7 @@ public class Baraja {
     }
 
     public static void main(String[] args) {
-         
+
         // Crear una instancia de la clase e inicializo mi lista de carta
         // se crea baraja
         Baraja baraja = new Baraja();
@@ -76,7 +74,6 @@ public class Baraja {
         }
 
         // provando el get
- 
 
         // se revuelve la baraja
         baraja.barajar();
@@ -105,7 +102,6 @@ public class Baraja {
             numero++;
         }
 
-        
     }
 
 }

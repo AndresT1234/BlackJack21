@@ -8,28 +8,27 @@ import edu.princeton.cs.algs4.StdOut;
 public class LS_Black<Item> implements Iterable<Item> {
 
     // Clase interna Nodo
-    public class Nodo {
+    private class Nodo {
         Item item;
         Nodo siguiente;
     }
 
-    // para emanuel
-    Nodo primero; // Lista vacia ->Nula veneco
+    private Nodo primero; // Lista vacia ->Nula veneco
 
-    void addPrimero(Item i) {
+    public void addPrimero(Item i) {
         Nodo temporal = new Nodo();
         temporal.item = i;
         temporal.siguiente = primero; // el temporal nuevo que estamos creando
         primero = temporal;
     }
 
-    void delPrimero() {
+    public void delPrimero() {
         if (primero == null)
             return;
         primero = primero.siguiente;
     }
 
-    void addFinal(Item i) {
+    public void addFinal(Item i) {
         Nodo temporal = new Nodo();
         temporal.item = i;
         if (primero == null) {
@@ -42,7 +41,7 @@ public class LS_Black<Item> implements Iterable<Item> {
         last.siguiente = temporal;
     }
 
-    void delFinal() {
+    public void delFinal() {
         if (primero == null)
             return;
         if (primero.siguiente == null) {
@@ -55,7 +54,7 @@ public class LS_Black<Item> implements Iterable<Item> {
         prev.siguiente = null;
     }
 
-    void insertOtrasPosiciones(Item nuevo, int posicion) {
+    public void insertOtrasPosiciones(Item nuevo, int posicion) {
         if (posicion < 0 || primero == null) {
             addPrimero(nuevo); // agregamos al principio si se cumple esta condicion
             return;
@@ -85,7 +84,7 @@ public class LS_Black<Item> implements Iterable<Item> {
         }
     }
 
-    void removertOtrasPosiciones(int posicion) {
+    public void removertOtrasPosiciones(int posicion) {
         if (posicion < 0 || primero == null) {
             return;// No se puede remover si esta en null
         }

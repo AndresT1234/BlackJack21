@@ -3,9 +3,19 @@ package upb.BlackJack21;
 public class Mano {
 
     private LS_Black<Carta> cartica;
+    private byte numJugador;
+    private boolean pasar;
 
     public Mano() {
         this.cartica = new LS_Black<>();
+        this.numJugador = 0;
+        this.pasar = false;
+    }
+
+    public Mano(byte numJugador) {
+        this.cartica = new LS_Black<>();
+        this.numJugador = numJugador;
+        this.pasar = false;
     }
 
     public LS_Black<Carta> GetCartas() {
@@ -14,6 +24,19 @@ public class Mano {
 
     public void agregarCarta(Carta carta) {
         cartica.addFinal(carta);
+    }
+
+    public byte getNum() {
+        return numJugador;
+    }
+
+    public boolean getPasa() {
+        return pasar;
+
+    }
+
+    public void pasa(boolean pasa) {
+        pasar = pasa;
     }
 
     public int operacionValor() {
