@@ -64,6 +64,16 @@ public class Baraja {
 
     }
 
+    //Override
+    @Override
+    public String toString(){
+        String resultado = null;
+            for (Carta carta : this.GetCartas()) {
+            resultado = carta.toString();
+        }
+        return resultado;
+    }
+
     // MAIN EJECUCION ADT
 
     public static void main(String[] args) {

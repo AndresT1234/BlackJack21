@@ -16,7 +16,7 @@ public class Carta {
 
     }
 
-    // CONTRUNCTOR CON SOBRECARGA DEL ADT
+    // CONTRUCTOR CON SOBRECARGA DEL ADT
     public Carta(String pinta, String valor) {
         this.pinta = pinta;
         this.valor = valor;

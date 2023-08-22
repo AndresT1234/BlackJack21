@@ -134,6 +134,15 @@ public class Taller1 {
                 }
             }
 
+            // Pruebas con assert
+            assert JugadorGAnador != null;
+            assert JugadorGAnador.operacionValor() == 21;
+
+            assert empatado > 1;
+            assert winners.longitud() == empatado;
+
+            StdOut.println("Pruebas completadas.");
+
         } else {
             StdOut.println(
                     "cantidad de jugadores no permitido, por favor ingrese jugadores en un rango de 1 a 7 jugadores");
