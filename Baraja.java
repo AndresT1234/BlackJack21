@@ -64,12 +64,12 @@ public class Baraja {
 
     }
 
-    //Override
+    // Override
     @Override
-    public String toString(){
-        String resultado = "";
-            for (Carta carta : this.GetCartas()) {
-            resultado += carta.toString() + "\n";
+    public String toString() {
+        String resultado = null;
+        for (Carta carta : this.GetCartas()) {
+            resultado = carta.toString();
         }
         return resultado;
     }
@@ -81,35 +81,27 @@ public class Baraja {
         // se crea baraja y al llamar mi metodo se inicializa
         Baraja baraja = new Baraja();
 
-<<<<<<< Updated upstream
-=======
-        baraja.inicializarBaraja();
-
-        // provando el get
-        StdOut.println(baraja.toString());
-        // se revuelve la baraja
->>>>>>> Stashed changes
         baraja.barajar();
+        StdOut.println("\nlas cartas barajadas son");
+        int contar = 0;
+        for (Carta carta : baraja.GetCartas()) {
+            System.out.println("carta #" + contar + " ---> " + carta.toString());
+            contar++;
+        }
+        System.out.println("\n");
 
-<<<<<<< Updated upstream
         System.out.println("vamos a eliminar cartas de nuestra lista, esto simulara el retiro de carta\n");
         System.out.println("la carta 1 retirada de la baraja  fue: " + baraja.sacarCarta());
         System.out.println("la carta 2 retirada de la baraja fue: " + baraja.sacarCarta());
-=======
-        StdOut.println(baraja.toString());
->>>>>>> Stashed changes
 
+        System.out.println("\n");
 
-<<<<<<< Updated upstream
         // ver si si se eliminaron mis cartas de la baraja actual
         int numero = 0;
         for (Carta carta : baraja.GetCartas()) {
             System.out.println("carta #" + numero + " ---> " + carta.toString());
             numero++;
         }
-=======
-
->>>>>>> Stashed changes
 
         // ASSERTS
         Carta carta1 = new Carta("corazon", "As");

@@ -16,6 +16,7 @@ public class Carta {
 
     }
 
+    // CONTRUNCTOR CON SOBRECARGA DEL ADT
     // CONTRUCTOR CON SOBRECARGA DEL ADT
     public Carta(String pinta, String valor) {
         this.pinta = pinta;
@@ -38,9 +39,7 @@ public class Carta {
     // SOBREESCRITURA
     @Override
     public String toString() {
-        String resultado;
-        resultado = "La Carta es " + GetValor() + " De " + GetPinta();
-        return resultado;
+        return "La Carta es " + GetValor() + " De " + GetPinta();
     }
 
     @Override
