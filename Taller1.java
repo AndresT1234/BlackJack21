@@ -8,7 +8,9 @@ public class Taller1 {
 
     public static void main(String[] args) {
 
-        StdOut.println("\nPorfavor ingrese los jugadores a participar\n");
+        StdOut.println("\n----------------BLACKJACK 21----------------\n");
+        StdOut.println("\nPOR FAVOR INGRESE LA CANTIDAD DE JUGADORES\n");
+
         int jugadores = StdIn.readByte();
 
         if (jugadores > 1 && jugadores < 8) {
@@ -45,11 +47,11 @@ public class Taller1 {
             while (!juegoTerminado) {
                 ronda++;
                 todosPasan = 0;
-                StdOut.println("\nRONDA NUMERO: " + ronda);
+                StdOut.println("\nRONDA NUMERO:    " + ronda);
 
                 for (Mano manolo : manitos) {
                     StdOut.println("\nTurno del Jugador " + manolo.getNum() + ":");
-                    StdOut.println("Para pedir ingrese 1 para pasar ingrese 0");
+                    StdOut.println("PARA PEDIR INGRESE EL NUMERO 1, PARA PASAR INGRESE EL NUMERO 0");
                     boolean verifica = false;
 
                     do {
