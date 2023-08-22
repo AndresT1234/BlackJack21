@@ -2,17 +2,30 @@ package upb.BlackJack21;
 
 import edu.princeton.cs.algs4.StdOut;
 
+//ADT Baraja
 public class Baraja {
 
+    // VALOR ADT
     private String[] pintas = { "trébol", "diamante", "corazon", "espada" };
     private String[] valores = { "As", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
     private LS_Black<Carta> cartas;
     private int siguienteCarta;
 
+    // CONSTRUCTOR ADT
     public Baraja() {
         this.cartas = inicializarBaraja();
     }
 
+    // ASESORES
+    public LS_Black<Carta> GetCartas() {
+        return cartas;
+    }
+
+    public int GetSiguienteCarta() {
+        return siguienteCarta;
+    }
+
+    // INICIALIZADOR
     public LS_Black<Carta> inicializarBaraja() {
 
         LS_Black<Carta> listaCartas = new LS_Black<Carta>();
@@ -25,16 +38,7 @@ public class Baraja {
         return listaCartas;
     }
 
-    public LS_Black<Carta> GetCartas() {
-        return cartas;
-    }
-
-    public int GetSiguienteCarta() {
-        return siguienteCarta;
-    }
-
-    // metodo para inicializar baraja
-
+    // APIS
     public void barajar() {
 
         int randomIndice;
@@ -60,22 +64,13 @@ public class Baraja {
 
     }
 
+    // MAIN EJECUCION ADT
+
     public static void main(String[] args) {
 
-        // Crear una instancia de la clase e inicializo mi lista de carta
-        // se crea baraja
+        // se crea baraja y al llamar mi metodo se inicializa
         Baraja baraja = new Baraja();
 
-        baraja.inicializarBaraja();
-
-        System.out.println("\nCartas antes de barajar:\n");
-        for (Carta carta : baraja.GetCartas()) {
-            System.out.println(carta.toString());
-        }
-
-        // provando el get
-
-        // se revuelve la baraja
         baraja.barajar();
         StdOut.println("\nlas cartas barajadas son");
         int contar = 0;
@@ -88,19 +83,25 @@ public class Baraja {
         System.out.println("vamos a eliminar cartas de nuestra lista, esto simulara el retiro de carta\n");
         System.out.println("la carta 1 retirada de la baraja  fue: " + baraja.sacarCarta());
         System.out.println("la carta 2 retirada de la baraja fue: " + baraja.sacarCarta());
-        System.out.println("la carta 3 retirada de la baraja fue: " + baraja.sacarCarta());
-        System.out.println("la carta 4 retirada de la baraja fue: " + baraja.sacarCarta());
-        System.out.println("la carta 5 retirada de la baraja fue: " + baraja.sacarCarta());
-        System.out.println("la carta 6 retirada de la baraja fue: " + baraja.sacarCarta());
 
         System.out.println("\n");
 
+        // ver si si se eliminaron mis cartas de la baraja actual
         int numero = 0;
-
         for (Carta carta : baraja.GetCartas()) {
             System.out.println("carta #" + numero + " ---> " + carta.toString());
             numero++;
         }
+
+        // ASSERTS
+        Carta carta1 = new Carta("corazon", "As");
+        Carta carta2 = new Carta("trébol", "2");
+        Carta carta3 = new Carta("diamante", "As");
+
+        assert carta1.toString().equals("As de corazon");
+        assert carta1.equals(new Carta("corazon", "As"));
+        assert !carta1.equals(carta2);
+        assert carta1.equals(carta3); // Debería ser true debido a la sobrecarga de equals() en Carta
 
     }
 
