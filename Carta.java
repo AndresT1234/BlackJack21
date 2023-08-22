@@ -38,7 +38,9 @@ public class Carta {
     // SOBREESCRITURA
     @Override
     public String toString() {
-        return "La Carta es " + GetValor() + " De " + GetPinta();
+        String resultado;
+        resultado = "La Carta es " + GetValor() + " De " + GetPinta();
+        return resultado;
     }
 
     @Override

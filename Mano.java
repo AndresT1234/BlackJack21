@@ -73,7 +73,20 @@ public class Mano {
         return total;
     }
 
+
     // MAIN PRUEBAS
+
+    @Override
+    public boolean equals(Object mano){
+        if(mano == null) return false;
+        if(!(mano instanceof Mano)) return false;
+        Mano ManoEqls = (Mano) mano;
+        if(this.operacionValor()==ManoEqls.operacionValor())return true;
+        return false;
+    }
+
+
+
 
     public static void main(String[] args) {
 

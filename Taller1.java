@@ -50,6 +50,7 @@ public class Taller1 {
                 StdOut.println("\nRONDA NUMERO:    " + ronda);
 
                 for (Mano manolo : manitos) {
+                    if(!manolo.getPasa()){
                     StdOut.println("\nTurno del Jugador " + manolo.getNum() + ":");
                     StdOut.println("PARA PEDIR INGRESE EL NUMERO 1, PARA PASAR INGRESE EL NUMERO 0");
                     boolean verifica = false;
@@ -68,7 +69,8 @@ public class Taller1 {
                         StdOut.println("El jugador: " + manolo.getNum() + "\nObtuvo:" + card.toString());
                     } else
                         todosPasan++;
-                    manolo.pasa(true);
+                        manolo.pasa(true);
+                    }
                 }
 
                 for (Mano manolo : manitos) {
