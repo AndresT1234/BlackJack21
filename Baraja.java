@@ -6,7 +6,7 @@ import edu.princeton.cs.algs4.StdOut;
 public class Baraja {
 
     // VALOR ADT
-    private String[] pintas = { "trébol", "diamante", "corazon", "espada" };
+    private String[] pintas = { "trebol", "diamante", "corazon", "espada" };
     private String[] valores = { "As", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
     private LS_Black<Carta> cartas;
     private int siguienteCarta;

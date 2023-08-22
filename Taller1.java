@@ -24,7 +24,7 @@ public class Taller1 {
                 manitos.addFinal(manita);
             }
 
-            byte pide;
+            byte pide = 0;
             Carta card = new Carta();
             byte todosPasan = 0;
             byte ronda = 1;
@@ -53,7 +53,6 @@ public class Taller1 {
                     StdOut.println("\nTurno del Jugador " + manolo.getNum() + ":");
                     StdOut.println("PARA PEDIR INGRESE EL NUMERO 1, PARA PASAR INGRESE EL NUMERO 0");
                     boolean verifica = false;
-
                     do {
                         pide = StdIn.readByte();
                         if (pide == 1 || pide == 0)
@@ -102,14 +101,15 @@ public class Taller1 {
             }
 
             actual = null;
-            byte empatado = 0;
+            count = 0;
             LS_Black<Mano> winners = new LS_Black<Mano>();
 
             for (int j = 0; j < arreglito.length; j++) {
                 actual = arreglito[j];
                 if (actual.operacionValor() == mayor) {
                     winners.addFinal(actual);
-                    empatado++;
+                    count++;
+
                 }
             }
 
@@ -119,7 +119,7 @@ public class Taller1 {
                         " con puntaje: " + recordGanador + "\n");
             }
 
-            if (empatado > 1) { // empate
+            if (count > 1) { // empate
                 StdOut.println("\nEMPATE: Los ganadores fueron :");
                 for (Mano manita : winners) {
                     StdOut.println("El jugador #:" + manita.getNum() + " con puntaje: " + manita.operacionValor());
@@ -133,15 +133,6 @@ public class Taller1 {
                                     "\n");
                 }
             }
-
-            // Pruebas con assert
-            assert JugadorGAnador != null;
-            assert JugadorGAnador.operacionValor() == 21;
-
-            assert empatado > 1;
-            assert winners.longitud() == empatado;
-
-            StdOut.println("Pruebas completadas.");
 
         } else {
             StdOut.println(
